@@ -1,0 +1,35 @@
+           --KAFKa installation--
+STEP 1: run to zookeeper server 		   
+cd C:\kafka\bin\windows> zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+STEP 2: run to kafka server
+PS C:\Users\Kamlesh Kumar> kafka-server-start.bat C:\kafka\config\server.properties
+-----------------------------------------------------------------------------
+STEP 3: Crate Topic 
+C:\kafka\bin\windows>
+
+kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
+
+STEP 4: Describe The Topic
+C:\kafka\bin\windows>
+
+kafka-topics.bat --describe --topic quickstart-events --bootstrap-server localhost:9092
+
+STEP 5: Write Some Event into the Topic
+C:\kafka\bin\windows>
+
+kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
+
+STEP 6: Read The Event into the consumer
+kafka-console-consumer.bat --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+
+how to check 
+1. To chek Topic:
+PS C:\kafka\bin\windows> 
+kafka-topics.bat --describe --topic cab-location --bootstrap-server localhost:9092
+
+2. To Consume Consumer for specific topic
+
+PS C:\kafka\bin\windows> 
+
+kafka-console-consumer.bat --topic cab-location --from-beginning --bootstrap-server localhost:9092
